@@ -7,6 +7,7 @@ RULS: Project Description and Overview
 RULS is a comprehensive chat application designed to provide real-time communication capabilities. It leverages a combination of modern technologies and tools to ensure efficient performance, scalability, and a smooth user experience.
 
 How RULS Works
+
 RULS integrates various components to deliver seamless real-time communication. Here's a high-level overview of the workflow:
 
 Frontend:
