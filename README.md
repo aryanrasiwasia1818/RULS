@@ -2,7 +2,8 @@
 the texting app scalable to 10 million users 
 
 
-RULS: Project Description and Overview
+RULS: Project Description and Overview 
+
 RULS is a comprehensive chat application designed to provide real-time communication capabilities. It leverages a combination of modern technologies and tools to ensure efficient performance, scalability, and a smooth user experience.
 
 How RULS Works
