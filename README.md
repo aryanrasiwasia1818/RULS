@@ -44,84 +44,8 @@ WebSocket Communication:
 
 Enables real-time bidirectional communication between the frontend and backend, ensuring messages are delivered instantly.
 
-Project Structure
-Backend Directory Structure (backend/ruls)
-ruls
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com
-│   │   │       └── chat
-│   │   │           └── ruls
-│   │   │               ├── RulsApplication.java
-│   │   │               ├── config
-│   │   │               │   ├── CachingConfig.java
-│   │   │               │   ├── KafkaConfig.java
-│   │   │               │   ├── MongoConfig.java
-│   │   │               │   ├── RateLimitConfig.java
-│   │   │               │   ├── RedisConfig.java
-│   │   │               │   ├── SecurityConfig.java
-│   │   │               │   └── WebSocketConfig.java
-│   │   │               ├── controller
-│   │   │               │   ├── AuthController.java
-│   │   │               │   └── ChatController.java
-│   │   │               ├── handler
-│   │   │               │   └── ChatWebSocketHandler.java
-│   │   │               ├── model
-│   │   │               │   ├── ChatMessage.java
-│   │   │               │   ├── Message.java
-│   │   │               │   ├── Recent.java
-│   │   │               │   ├── ServerNode.java
-│   │   │               │   └── User.java
-│   │   │               ├── repository
-│   │   │               │   ├── ChatRepository.java
-│   │   │               │   ├── ChatRepositoryImpl.java
-│   │   │               │   ├── RecentRepository.java
-│   │   │               │   ├── RecentRepositoryImpl.java
-│   │   │               │   ├── UserRepository.java
-│   │   │               │   └── UserRepositoryImpl.java
-│   │   │               └── service
-│   │   │                   ├── AuthService.java
-│   │   │                   ├── AuthServiceImpl.java
-│   │   │                   ├── ChatService.java
-│   │   │                   ├── ChatServiceImpl.java
-│   │   │                   ├── KafkaProducer.java
-│   │   │                   ├── KafkaConsumerService.java
-│   │   │                   ├── MessageRoutingService.java
-│   │   │                   ├── MessageService.java
-│   │   │                   └── MessageServiceImpl.java
-│   ├── resources
-│   │   ├── application.properties
-│   │   └── application-test.properties
-│   └── test
-│       └── java
-│           └── com
-│               └── chat
-│                   └── ruls
-│                       └── RulsApplicationTests.java
-└── pom.xml
-Frontend Directory Structure (ruls-frontend)
-ruls-frontend
-├── src
-│   ├── assets
-│   ├── components
-│   │   ├── Chat.jsx
-│   │   ├── Login.jsx
-│   │   ├── Message.jsx
-│   │   ├── RecentInteractions.jsx
-│   │   ├── Register.jsx
-│   │   └── UserList.jsx
-│   ├── services
-│   │   └── api.js
-│   ├── App.css
-│   ├── App.jsx
-│   ├── index.css
-│   └── Main.jsx
-├── eslint.config.js
-├── index.html
-├── package.json
-├── package-lock.json
-└── vite.config.js
+
+
 Detailed Workflow
 User Interaction:
 
@@ -145,7 +69,9 @@ Asynchronous Processing:
 
 Kafka ensures asynchronous processing, making the system scalable and efficient.
 
+
 Technologies Used
+
 Frontend: React.js(Node.js runtime)
 
 Backend: Spring Boot (Java)
@@ -158,5 +84,7 @@ Message Queue: Kafka
 
 WebSocket Communication: For real-time bidirectional communication
 
+
 Conclusion
+
 RULS is a robust chat application that leverages modern technologies to provide real-time communication, efficient message delivery, and scalable architecture. The integration of Docker ensures consistency across environments, making it easy to deploy and maintain.
