@@ -10,6 +10,11 @@ const Chat = ({ user, selectedUser }) => {
     const [connected, setConnected] = useState(false);
 
     useEffect(() => {
+        if (!selectedUser) return;
+
+        // Clear messages when switching users
+        setMessages([]);
+
         // Fetch previous messages between the user and selectedUser
         const fetchMessages = async () => {
             try {
@@ -24,20 +29,7 @@ const Chat = ({ user, selectedUser }) => {
             }
         };
 
-        const fetchUnreadMessages = async () => {
-            try {
-                const response = await axios.post(`http://localhost:8081/getUnreadMessages`, {
-                    receiverId: user.email
-                });
-                console.log('Fetched unread messages:', response.data);
-                setMessages((prevMessages) => [...prevMessages, ...response.data]);
-            } catch (error) {
-                console.error('Failed to fetch unread messages', error);
-            }
-        };
-
         fetchMessages();
-        fetchUnreadMessages();
 
         // Initialize WebSocket connection
         const socket = new SockJS(`http://localhost:8081/ws`);
@@ -53,7 +45,9 @@ const Chat = ({ user, selectedUser }) => {
             stompClient.subscribe(`/user/${user.email}/queue/reply`, (msg) => {
                 console.log('Received message from WebSocket:', msg.body);
                 const receivedMessage = JSON.parse(msg.body);
-                setMessages((prevMessages) => [...prevMessages, receivedMessage]);
+                if (receivedMessage.senderId === selectedUser.email) {
+                    setMessages((prevMessages) => [...prevMessages, receivedMessage]);
+                }
             });
         };
 
@@ -75,7 +69,7 @@ const Chat = ({ user, selectedUser }) => {
                 stompClientRef.current.deactivate();
             }
         };
-    }, [user.email, selectedUser.email]);
+    }, [user.email, selectedUser]);
 
     const sendMessage = (e) => {
         e.preventDefault();
